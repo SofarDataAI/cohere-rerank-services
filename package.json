@@ -1,8 +1,8 @@
 {
-  "name": "cohere-rerank-v3-services",
-  "version": "0.2.1",
+  "name": "cohere-rerank-services",
+  "version": "0.2.2",
   "bin": {
-    "cohere-rerank-v3-services": "bin/cohere-rerank-v3-services.js"
+    "cohere-rerank-services": "bin/cohere-rerank-services.js"
   },
   "scripts": {
     "build": "tsc",
@@ -11,27 +11,27 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.4",
-    "@types/jest": "^29.5.14",
-    "@types/node": "22.10.2",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "22.16.3",
     "@types/source-map-support": "^0.5.10",
-    "aws-cdk": "2.172.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.5",
+    "aws-cdk": "2.1020.2",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.7.2"
+    "typescript": "~5.8.3"
   },
   "dependencies": {
-    "@aws-cdk/aws-apprunner-alpha": "2.172.0-alpha.0",
-    "@types/aws-lambda": "^8.10.146",
-    "aws-cdk-lib": "^2.172.0",
-    "cdk-ecr-deployment": "^3.0.149",
+    "@aws-cdk/aws-apprunner-alpha": "^2.204.0-alpha.0",
+    "@types/aws-lambda": "^8.10.150",
+    "aws-cdk-lib": "^2.204.0",
+    "cdk-ecr-deployment": "^4.0.1",
     "constructs": "^10.4.2",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.2.0",
     "source-map-support": "^0.5.21"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.172.0",
+    "aws-cdk-lib": "^2.204.0",
     "constructs": "^10.4.2"
   }
 }

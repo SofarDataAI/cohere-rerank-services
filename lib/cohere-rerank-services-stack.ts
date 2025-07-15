@@ -1,22 +1,22 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
-import { CohereRerankV3ServicesStackProps } from './CohereRerankV3ServicesStackProps';
-import { CdkEcrDeploymentStack } from './constructs/cohere-rerank-v3-ecr';
-import { CdkCohereRerankV3AppRunnerStack } from './constructs/cohere-rerank-v3-app-runner';
+import { CohereRerankServicesStackProps } from './CohereRerankServicesStackProps';
+import { CdkEcrDeploymentStack } from './constructs/cohere-rerank-ecr';
+import { CdkCohereRerankAppRunnerStack } from './constructs/cohere-rerank-app-runner';
 
 /**
- * The `CohereRerankV3ServicesStack` class defines the AWS infrastructure as code for the Cohere Embed V3 Services.
+ * The `CohereRerankServicesStack` class defines the AWS infrastructure as code for the Cohere Embed V3 Services.
  * It sets up a Lambda function configured to use the Cohere API for natural language processing tasks.
  */
-export class CohereRerankV3ServicesStack extends cdk.Stack {
+export class CohereRerankServicesStack extends cdk.Stack {
   /**
-   * Constructs a new instance of the CohereRerankV3ServicesStack.
+   * Constructs a new instance of the CohereRerankServicesStack.
    * @param scope The scope in which to define this construct. Usually an `App` or a `Stage`.
    * @param id A unique identifier for the stack.
    * @param props The stack properties, including the Cohere API key, model, and other AWS resource configurations.
    */
-  constructor(scope: Construct, id: string, props: CohereRerankV3ServicesStackProps) {
+  constructor(scope: Construct, id: string, props: CohereRerankServicesStackProps) {
     super(scope, id, props);
 
     const vpc = ec2.Vpc.fromLookup(this, `${props.resourcePrefix}-VPC`, {
@@ -29,7 +29,7 @@ export class CohereRerankV3ServicesStack extends cdk.Stack {
     });
     const ecrRepository = ecrStack.ecrRepository;
 
-    const appRunnerStack = new CdkCohereRerankV3AppRunnerStack(this, `${props.resourcePrefix}-AppRunnerStack`, {
+    const appRunnerStack = new CdkCohereRerankAppRunnerStack(this, `${props.resourcePrefix}-AppRunnerStack`, {
       ...props,
       vpc,
       ecrRepository,

@@ -1,10 +1,10 @@
 import { NestedStackProps } from 'aws-cdk-lib';
-import { CohereRerankV3Services } from '../CohereRerankV3ServicesStackProps';
+import { CohereRerankServices } from '../CohereRerankServicesStackProps';
 
 /**
  * Properties for CdkEcrDeploymentStack.
  */
-export interface CdkErcDeploymentStackProps extends NestedStackProps, CohereRerankV3Services {
+export interface CdkErcDeploymentStackProps extends NestedStackProps, CohereRerankServices {
     /**
      * The build arguments for the Docker image.
      */

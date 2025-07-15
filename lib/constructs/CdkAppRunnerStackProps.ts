@@ -1,8 +1,8 @@
 import { NestedStackProps } from "aws-cdk-lib";
 import * as cdk from "aws-cdk-lib";
-import { CohereRerankV3Services } from "../CohereRerankV3ServicesStackProps";
+import { CohereRerankServices } from "../CohereRerankServicesStackProps";
 
-export interface CdkCohereRerankV3AppRunnerStackProps extends NestedStackProps, CohereRerankV3Services {
+export interface CdkCohereRerankAppRunnerStackProps extends NestedStackProps, CohereRerankServices {
     /**
      * The VPC where the database should be deployed.
      */
@@ -14,10 +14,10 @@ export interface CdkCohereRerankV3AppRunnerStackProps extends NestedStackProps, 
     /**
      * The App Runner docker run arguments.
      */
-    readonly dockerRunArgs: CdkCohereRerankV3DockerRunArgTyped,
+    readonly dockerRunArgs: CdkCohereRerankDockerRunArgTyped,
 }
 
-export interface CdkCohereRerankV3DockerRunArgTyped {
+export interface CdkCohereRerankDockerRunArgTyped {
     /**
      * The API key for Cohere services.
      */

@@ -28,9 +28,7 @@ def hello_world() -> dict:
 def rerank(request: dict) -> dict:
     query = request['query']
     documents = request['documents']
-    top_n = request.get('top_n', 5)
-    rank_fields = request.get('rank_fields', None)
-    return_documents = request.get('return_documents', False)
+    top_n = request.get('top_n', 1)
     """
         A function to rerank documents using the Cohere API.
 
@@ -38,21 +36,19 @@ def rerank(request: dict) -> dict:
             query (str): The query to rerank documents.
             documents (list): The list of documents to rerank.
             top_n (int): The number of documents to return.
-            rank_fields (list): The list of fields to rank the documents.
-            return_documents (bool): A flag to return the documents.
 
         Returns:
             dict: A dictionary with the reranked documents.
     """
 
-    rerank_model_name = COHERE_RERANK_MODEL
-    cohere_client = cohere.Client(api_key=COHERE_API_KEY)
-    if rerank_model_name is None or rerank_model_name not in SUPPORTED_RERANK_MODELS:
+    model = COHERE_RERANK_MODEL
+    co = cohere.ClientV2(api_key=COHERE_API_KEY)
+    if model is None or model not in SUPPORTED_RERANK_MODELS:
         # throw an unsupported model error
         raise ValueError(f"Unsupported rerank model name. Supported models are: {SUPPORTED_RERANK_MODELS}")
 
-    rerank_response = cohere_client.rerank(
-        model=rerank_model_name, query=query, documents=documents, top_n=top_n, return_documents=return_documents, rank_fields=rank_fields)
+    rerank_response = co.rerank(
+        model=model, query=query, documents=documents, top_n=top_n)
     # Convert the RerankResponse object to a dictionary and return it
     return {
         "id": rerank_response.id,

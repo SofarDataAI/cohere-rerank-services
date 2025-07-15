@@ -3,7 +3,7 @@ import 'source-map-support/register';
 
 import * as cdk from 'aws-cdk-lib';
 import * as dotenv from 'dotenv';
-import { CohereRerankV3ServicesStack } from '../lib/cohere-rerank-v3-services-stack';
+import { CohereRerankServicesStack } from '../lib/cohere-rerank-services-stack';
 import { checkEnvVariables } from '../utils/check-environment-variables';
 
 dotenv.config(); // Load environment variables from .env file
@@ -41,7 +41,7 @@ const cdkDeployMemoryType = process.env.MEMORY_TYPE!;
 const vpcId = process.env.VPC_ID!;
 
 const app = new cdk.App();
-new CohereRerankV3ServicesStack(app, `${appName}-${deployRegion}-${deployEnvironment}-CohereRerankV3ServicesStack`, {
+new CohereRerankServicesStack(app, `${appName}-${deployRegion}-${deployEnvironment}-CohereRerankServicesStack`, {
   resourcePrefix: `${appName}-${deployRegion}-${deployEnvironment}`,
   cdkDeployRegion: deployRegion,
   cdkDeployEnvironment: deployEnvironment,
@@ -61,8 +61,8 @@ new CohereRerankV3ServicesStack(app, `${appName}-${deployRegion}-${deployEnviron
   vpcId,
   cdkDeployMemoryType,
   cdkDeployPlatform: cdkDeployPlatform,
-  description: `${appName}-${deployRegion}-${deployEnvironment}-CohereRerankV3ServicesStack`,
-  stackName: `${deployEnvironment}-${cdkDeployPlatformString}-CohereRerankV3ServicesStack`,
+  description: `${appName}-${deployRegion}-${deployEnvironment}-CohereRerankServicesStack`,
+  stackName: `${deployEnvironment}-${cdkDeployPlatformString}-CohereRerankServicesStack`,
 });
 
 app.synth();

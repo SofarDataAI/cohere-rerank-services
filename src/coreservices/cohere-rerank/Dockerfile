@@ -1,9 +1,9 @@
-FROM python:3.11-slim AS builder
+FROM python:3.13-slim AS builder
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir --target=/app/dependencies -r requirements.txt
 
-FROM python:3.11-slim AS runtime
+FROM python:3.13-slim AS runtime
 WORKDIR /app
 ENV PYTHONPATH=/usr/local
 COPY --from=builder /app/dependencies /usr/local
