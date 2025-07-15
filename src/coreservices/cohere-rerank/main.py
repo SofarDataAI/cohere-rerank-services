@@ -28,7 +28,7 @@ def hello_world() -> dict:
 def rerank(request: dict) -> dict:
     query = request['query']
     documents = request['documents']
-    top_n = request.get('top_n', 5)
+    top_n = request.get('top_n', 1)
     rank_fields = request.get('rank_fields', None)
     return_documents = request.get('return_documents', False)
     """

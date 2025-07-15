@@ -3,16 +3,16 @@ import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as apprunner from '@aws-cdk/aws-apprunner-alpha';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import { CdkCohereRerankV3AppRunnerStackProps } from './CdkAppRunnerStackProps';
+import { CdkCohereRerankAppRunnerStackProps } from './CdkAppRunnerStackProps';
 import { parseCpuType, parseMemoryType } from '../../utils/check-hardware-input';
 
 /**
- * The CdkCohereRerankV3AppRunnerStack class is responsible for deploying an AWS App Runner service
+ * The CdkCohereRerankAppRunnerStack class is responsible for deploying an AWS App Runner service
  * with a VPC connector, allowing the service to interact with other AWS resources within a VPC.
  * It sets up the necessary roles, security groups, and network configurations required for the service
  * to operate within the VPC. It also builds and deploys a Docker image to the App Runner service.
  */
-export class CdkCohereRerankV3AppRunnerStack extends cdk.NestedStack {
+export class CdkCohereRerankAppRunnerStack extends cdk.NestedStack {
     public readonly APP_RUNNER_SERVICE_URL: string;
 
     /**
@@ -20,9 +20,9 @@ export class CdkCohereRerankV3AppRunnerStack extends cdk.NestedStack {
      *
      * @param {Construct} scope - The scope in which to define this construct.
      * @param {string} id - The scoped construct ID. Must be unique amongst siblings in the same scope.
-     * @param {CdkCohereRerankV3AppRunnerStackProps} props - The stack properties, including the VPC ID, ECR repository, and other configurations.
+     * @param {CdkCohereRerankAppRunnerStackProps} props - The stack properties, including the VPC ID, ECR repository, and other configurations.
      */
-    constructor(scope: Construct, id: string, props: CdkCohereRerankV3AppRunnerStackProps) {
+    constructor(scope: Construct, id: string, props: CdkCohereRerankAppRunnerStackProps) {
         super(scope, id, props);
 
         const existingVpc = props.vpc;

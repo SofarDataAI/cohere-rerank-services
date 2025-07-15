@@ -1,9 +1,9 @@
 import { StackProps } from "aws-cdk-lib";
 
-export interface CohereRerankV3ServicesStackProps extends StackProps, CohereRerankV3Services, CohereRerankV3ServiceArgs {
+export interface CohereRerankServicesStackProps extends StackProps, CohereRerankServices, CohereRerankServiceArgs {
 }
 
-export interface CohereRerankV3Services {
+export interface CohereRerankServices {
     /**
      * The name of the application.
      */
@@ -58,7 +58,7 @@ export interface CohereRerankV3Services {
     readonly vpcId: string;
 }
 
-export interface CohereRerankV3ServiceArgs {
+export interface CohereRerankServiceArgs {
     /**
      * The API key for Cohere services.
      */

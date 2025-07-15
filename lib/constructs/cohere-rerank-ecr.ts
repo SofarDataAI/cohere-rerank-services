@@ -28,7 +28,7 @@ export class CdkEcrDeploymentStack extends cdk.NestedStack {
         });
 
         const dockerImageAssetProps: DockerImageAssetProps = {
-            directory: path.join(__dirname, `../../src/coreservices/cohere-rerank-v3`),
+            directory: path.join(__dirname, `../../src/coreservices/cohere-rerank`),
             file: props.dockerfileName,
             platform: props.cdkDeployPlatform === `LINUX_ARM64` ? cdk.aws_ecr_assets.Platform.LINUX_ARM64 : cdk.aws_ecr_assets.Platform.LINUX_AMD64,
             buildArgs: props.dockerBuildArgs === undefined ? undefined : {

@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/cohere-rerank-v3-services.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/cohere-rerank-services.ts",
   "watch": {
     "include": [
       "**"
