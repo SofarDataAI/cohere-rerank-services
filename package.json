@@ -1,8 +1,8 @@
 {
-  "name": "cohere-rerank-v3-services",
+  "name": "cohere-rerank-services",
   "version": "0.2.2",
   "bin": {
-    "cohere-rerank-v3-services": "bin/cohere-rerank-v3-services.js"
+    "cohere-rerank-services": "bin/cohere-rerank-services.js"
   },
   "scripts": {
     "build": "tsc",
